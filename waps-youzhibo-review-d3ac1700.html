@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>优直播 · 专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f8f9fa;
+      color: #1e293b;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* 首页横幅 — 极简杂志通栏 */
+    .hero {
+      background: #ffffff;
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #74839e;
+      border-bottom: 1px solid #d4dce6;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 350;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      font-weight: 500;
+      color: #2563eb;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto 0.6rem;
+    }
+
+    .hero .subnote {
+      font-size: 0.9rem;
+      color: #7e8b9f;
+      margin-top: 0.75rem;
+    }
+
+    /* 背景说明 — 窄卡 */
+    .context-section {
+      background: #ffffff;
+      padding: 3rem 1.5rem;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .context-section .inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .context-section h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: #0f172a;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .context-section p {
+      margin-bottom: 1.2rem;
+      color: #334155;
+    }
+
+    .context-section p strong {
+      font-weight: 500;
+      color: #1e293b;
+    }
+
+    /* 三段自然介绍 — 极简卡片式 */
+    .features {
+      background: #ffffff;
+      padding: 3.5rem 1.5rem;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .features .inner {
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .features h2 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #0f172a;
+      margin-bottom: 2.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-item {
+      margin-bottom: 2.5rem;
+    }
+
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-item .num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      background: #f1f4f9;
+      padding: 0.1rem 0.7rem;
+      border-radius: 12px;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item h3 {
+      font-size: 1.2rem;
+      font-weight: 450;
+      color: #1e293b;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item p {
+      color: #475569;
+      font-size: 1rem;
+    }
+
+    .feature-item p a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid #bfd4fc;
+      transition: border-color 0.2s;
+    }
+
+    .feature-item p a:hover {
+      border-color: #2563eb;
+    }
+
+    /* 页尾访问提示 — 干净落点 */
+    .footer-note {
+      background: #ffffff;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+    }
+
+    .footer-note .inner {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .footer-note .tagline {
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      color: #64748b;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-note p {
+      font-size: 1rem;
+      color: #334155;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-note .ref-link {
+      display: inline-block;
+      font-size: 1.05rem;
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid #b8ccf0;
+      transition: border-color 0.15s;
+      font-weight: 450;
+    }
+
+    .footer-note .ref-link:hover {
+      border-bottom-color: #1e4bb3;
+    }
+
+    .footer-note .footnote {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 2.8rem 1.2rem 2.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 0.95rem;
+      }
+      .context-section,
+      .features,
+      .footer-note {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+      }
+      .context-section h2 {
+        font-size: 1.3rem;
+      }
+      .feature-item h3 {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero .subnote {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 首页横幅 -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-label">杂志专题 · 快速识别</div>
+        <h1>你想要找的<em>优直播</em>，是哪种场景？</h1>
+        <p>有人用它观看活动转播，有人用它搭建内部画面通道。<br>先明确用途，再打开工具——这是最直接的开始。</p>
+        <div class="subnote">一个直播服务站点 · 面向具体使用场景</div>
+      </div>
+    </section>
+
+    <!-- 背景说明 -->
+    <section class="context-section">
+      <div class="inner">
+        <h2>它是什么，以及它不是什么</h2>
+        <p>接触一个不熟悉的网站时，最自然的想法是：“这个页面能帮我做什么？” <strong>优直播</strong> 不是一个泛娱乐内容平台，也不是短视频广场。它提供的是一套围绕直播传输与接收的基础能力——你可以把它理解为一个偏向工具属性的访问入口。</p>
+        <p>从界面逻辑来看，它更接近“轻量级直播管理端”：频道列表、观看权限、推流地址……这些元素构成了它的核心面貌。如果你曾搭建过或参与过线上会议、课程、内部活动直播，那么它的布局会让你感到熟悉。</p>
+        <p>需要说明的是：这里不存在夸大宣传的“万人同时在线无压力”口号，也没有诱导点击的悬浮广告。它就是一个你带着具体需求去使用、然后关闭页面的普通网站。</p>
+      </div>
+    </section>
+
+    <!-- 三段自然介绍 -->
+    <section class="features">
+      <div class="inner">
+        <h2>从三个角度理解它的功能性</h2>
+
+        <div class="feature-item">
+          <span class="num">01</span>
+          <h3>频道化的观看入口</h3>
+          <p>页面主区域通常以卡片或列表呈现不同直播频道。每个频道对应一个独立的内容流——可能是会议实况、教学录像或活动现场。你不需要注册就能看到公开频道的标题与状态，点击即可进入播放页面。这种结构对于需要快速切换观看目标的用户尤其友好。</p>
+        </div>
+
+        <div class="feature-item">
+          <span class="num">02</span>
+          <h3>面向管理者的后台痕迹</h3>
+          <p>虽然普通访客只看到播放界面，但网站的设计细节暗示了它的另一面：推流密钥、频道设置、访问密码等字段说明它同时具备“分发管理”的属性。如果你恰好是活动组织者，可以直接在 <a href="https://waps-youzhibo.com">优直播</a> 上配置自己的直播流，而不必额外搭建服务器。</p>
+        </div>
+
+        <div class="feature-item">
+          <span class="num">03</span>
+          <h3>简洁克制，不堆砌功能</h3>
+          <p>比起那些试图包揽聊天、打赏、回放、电商的“超级直播平台”，这个站点显得相当收敛。它保留了最基本的直播交付闭环：推流 → 分发 → 观看。没有多余模块干扰判断，适合想要直接获取直播画面、不想花时间理解复杂后台的用户。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页尾访问提示 -->
+    <section class="footer-note">
+      <div class="inner">
+        <div class="tagline">—— 如果你打算实际使用 ——</div>
+        <p>它不是一个需要“学习成本”的产品。打开页面，找到你关心的频道，或者输入推流地址——仅此而已。如果你正需要一个专注于直播本身的工具，不妨花一分钟浏览 <a href="https://waps-youzhibo.com" class="ref-link">优直播</a> 的当前界面，看看是否符合你的预期。</p>
+        <div class="footnote">专题介绍 · 基于实际页面特征描述</div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
